@@ -24,25 +24,25 @@ class Videos{
     var vImageDate:NSData?
     
     //Getter
-    var nName: String{ return _vName}
+    var vName: String{ return _vName}
     
-    var nRights: String{ return _vRights}
+    var vRights: String{ return _vRights}
     
-    var nPrice: String{ return _vPrice}
+    var vPrice: String{ return _vPrice}
     
     var vImageUrl: String{ return _vImageUrl}
     
-    var nArtist: String{ return _vArtist}
+    var vArtist: String{ return _vArtist}
     
     var vVideoUrl: String{ return _vVideoUrl}
     
-    var nImid: String{ return _vImid}
+    var vImid: String{ return _vImid}
     
-    var nGenre: String{ return _vGenre}
+    var vGenre: String{ return _vGenre}
     
-    var nLinkToiTunes: String{ return _vLinkToiTunes}
+    var vLinkToiTunes: String{ return _vLinkToiTunes}
     
-    var nReleaseDte: String{ return _vReleaseDte}
+    var vReleaseDte: String{ return _vReleaseDte}
     
     
     init(data: JSONDictionary){

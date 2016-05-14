@@ -9,7 +9,7 @@
 import Foundation
 
 class APIManager{
-    func loadData(urlString:String, completion:(result:String)-> Void){
+    func loadData(urlString:String, completion:[Videos]-> Void){
         let config = NSURLSessionConfiguration.ephemeralSessionConfiguration()
         
         let session = NSURLSession(configuration: config)
@@ -21,9 +21,7 @@ class APIManager{
             (data, respose, error)-> Void in
             
             if error != nil{
-                dispatch_async(dispatch_get_main_queue()){
-                    completion(result: (error!.localizedDescription))
-                }
+                print(error!.localizedDescription)
             }
             else{
                 //Added for JSONSerialization
@@ -32,7 +30,7 @@ class APIManager{
                     if let json = try NSJSONSerialization.JSONObjectWithData(data!, options: .AllowFragments) as? JSONDictionary,
                         feed = json["feed"] as? JSONDictionary,
                         entries = feed["entry"] as? JSONArray{
-                        print(json)
+                        //print(json)
                         
                         var videos = [Videos]()
                         
@@ -41,21 +39,23 @@ class APIManager{
                             videos.append(entry)
                         }
                         
+                        let i = videos.count
+                        print("iTunesApiManager - total count --> \(i)")
+                        print(" ")
+                        
+                        
                         let priority = DISPATCH_QUEUE_PRIORITY_HIGH
                         dispatch_async(dispatch_get_global_queue(priority, 0)){
-                            completion(result: "JSONSerialization Successful")
+                            completion(videos)
                         }                    }
                 }
                 catch{
-                    dispatch_async(dispatch_get_main_queue()){
-                        completion(result: "Error in NSJSONSerialization")
-                    }                }
+                    print("Error in NSJSONSerialization")
+                }
                 
             }
         }
         
         task.resume()
     }
-    
-    
 }
