@@ -15,6 +15,8 @@
 		6086D6E61CE76EFD004C2C54 /* MusicVideoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6086D6E51CE76EFD004C2C54 /* MusicVideoTests.swift */; };
 		6086D6F11CE76EFD004C2C54 /* MusicVideoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6086D6F01CE76EFD004C2C54 /* MusicVideoUITests.swift */; };
 		6086D7031CE77852004C2C54 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6086D7021CE77852004C2C54 /* APIManager.swift */; };
+		6086D7061CE7AD48004C2C54 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6086D7051CE7AD48004C2C54 /* Constants.swift */; };
+		6086D7081CE7AEBC004C2C54 /* MusicVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6086D7071CE7AEBC004C2C54 /* MusicVideo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		6086D6F01CE76EFD004C2C54 /* MusicVideoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicVideoUITests.swift; sourceTree = "<group>"; };
 		6086D6F21CE76EFD004C2C54 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6086D7021CE77852004C2C54 /* APIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		6086D7051CE7AD48004C2C54 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		6086D7071CE7AEBC004C2C54 /* MusicVideo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicVideo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +103,7 @@
 		6086D6CF1CE76EFD004C2C54 /* MusicVideo */ = {
 			isa = PBXGroup;
 			children = (
+				6086D7041CE7AD27004C2C54 /* Utils */,
 				6086D7011CE77404004C2C54 /* Supporting Files */,
 				6086D6FE1CE773BE004C2C54 /* Model */,
 				6086D6FF1CE773D8004C2C54 /* Controller */,
@@ -129,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				6086D7021CE77852004C2C54 /* APIManager.swift */,
+				6086D7071CE7AEBC004C2C54 /* MusicVideo.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -158,6 +164,14 @@
 				6086D6D01CE76EFD004C2C54 /* AppDelegate.swift */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		6086D7041CE7AD27004C2C54 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				6086D7051CE7AD48004C2C54 /* Constants.swift */,
+			);
+			name = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -293,7 +307,9 @@
 			files = (
 				6086D7031CE77852004C2C54 /* APIManager.swift in Sources */,
 				6086D6D31CE76EFD004C2C54 /* ViewController.swift in Sources */,
+				6086D7081CE7AEBC004C2C54 /* MusicVideo.swift in Sources */,
 				6086D6D11CE76EFD004C2C54 /* AppDelegate.swift in Sources */,
+				6086D7061CE7AD48004C2C54 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

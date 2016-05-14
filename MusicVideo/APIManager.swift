@@ -29,7 +29,7 @@ class APIManager{
                 //Added for JSONSerialization
                 print(data)
                 do{
-                    if let json = try NSJSONSerialization.JSONObjectWithData(data!, options: .AllowFragments) as? [String: AnyObject]{
+                    if let json = try NSJSONSerialization.JSONObjectWithData(data!, options: .AllowFragments) as? JSONDictionary{
                         
                         print(json)
                         
