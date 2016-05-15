@@ -17,10 +17,6 @@ class MusicVideoTVC: UITableViewController {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ViewController.reachabilityStatusChanged), name: "ReachStatusChanged", object: nil)
         
         reachabilityStatusChanged()
-        
-        //Call API
-        let api = APIManager()
-        api.loadData("https://itunes.apple.com/us/rss/topmusicvideos/limit=30/json", completion: didLoadData)
     }
     
     func didLoadData(videos: [Videos]){
@@ -35,16 +31,49 @@ class MusicVideoTVC: UITableViewController {
     
     func reachabilityStatusChanged(){
         switch reachabilityStatus{
-        case NOACCESS : view.backgroundColor = UIColor.redColor()
-        //displayLabel.text = (NOACCESS)
-        case WIFI : view.backgroundColor = UIColor.greenColor()
-        //displayLabel.text = (WIFI)
-        case WWAN : view.backgroundColor = UIColor.yellowColor()
-        //displayLabel.text = (WWAN)
-        default: return
+        case NOACCESS :
+            view.backgroundColor = UIColor.redColor()
+            dispatch_async(dispatch_get_main_queue()){
+            let alert = UIAlertController(title: "No Internet Access", message: "Please make sure you are connected to the internet", preferredStyle: .Alert)
+            let cancelAction = UIAlertAction(title: "Cancel", style: .Default){
+                action-> Void in
+                print("Cancel")
+            }
+            
+            let deleteAction = UIAlertAction(title: "Delete", style: .Destructive){
+                action-> Void in
+                print("Delete")
+            }
+            
+            let okAction = UIAlertAction(title: "Ok", style: .Default){
+                action-> Void in
+                print("Ok")
+            }
+            
+            alert.addAction(okAction)
+            alert.addAction(cancelAction)
+            alert.addAction(deleteAction)
+            
+            self.presentViewController(alert, animated: true, completion: nil)
+            }
+        default:
+            view.backgroundColor = UIColor.greenColor()
+            if videos.count > 0{
+                runAPI()
+            }
+            else{
+                print("Do not refresh API")
+            }
         }
     }
     
+    
+    func runAPI(){
+        //Call API
+        let api = APIManager()
+        api.loadData("https://itunes.apple.com/us/rss/topmusicvideos/limit=30/json", completion: didLoadData)
+    }
+
     deinit{
         NSNotificationCenter.defaultCenter().removeObserver(self, name: "ReachStatusChanged", object: nil)
     }

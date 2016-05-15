@@ -25,9 +25,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         reachabilityStatusChanged()
         
-        //Call API
-        let api = APIManager()
-        api.loadData("https://itunes.apple.com/us/rss/topmusicvideos/limit=30/json", completion: didLoadData)
     }
 
     func didLoadData(videos: [Videos]){
@@ -50,6 +47,12 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         displayLabel.text = (WWAN)
         default: return
         }
+    }
+    
+    func runAPI(){
+        //Call API
+        let api = APIManager()
+        api.loadData("https://itunes.apple.com/us/rss/topmusicvideos/limit=30/json", completion: didLoadData)
     }
     
     deinit{
