@@ -33,6 +33,7 @@ class MusicVideoTableViewCell: UITableViewCell {
         }
         else{
             GetVideoImage(video!, ImageView: musicImage)
+            print("Get images in bg thread")
         }
 
     }
