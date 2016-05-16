@@ -22,6 +22,10 @@ class MusicVideoTableViewCell: UITableViewCell {
     @IBOutlet weak var musicDate: UILabel!
     
     func updateCell(){
+        musicTitle.font = UIFont.preferredFontForTextStyle(UIFontTextStyleSubheadline)
+        musicArtist.font = UIFont.preferredFontForTextStyle(UIFontTextStyleSubheadline)
+        musicDate.font = UIFont.preferredFontForTextStyle(UIFontTextStyleSubheadline)
+        
         musicTitle.text = video?.vName
         musicArtist.text = video?.vArtist
         musicDate.text = video?.vReleaseDte
